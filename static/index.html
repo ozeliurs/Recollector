@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recollector by Kandel</title>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        * {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .roboto-thin {
+            font-family: "Roboto", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        .roboto-thin-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        .roboto-light {
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .roboto-light-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .roboto-regular-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .roboto-medium {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .roboto-medium-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .roboto-bold {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .roboto-bold-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .roboto-black {
+            font-family: "Roboto", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .roboto-black-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .clear {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="nav" style="margin-bottom: 10px; min-height: 15vh">
+    <div class="nav-left">
+        <a href="#">Discover</a>
+        <a href="#">Start a Project</a>
+    </div>
+    <div class="nav-center">
+        <a class="brand" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 70" width="100%" height="100%"><title>
+                Kickstarter</title>
+                <g style="fill: var(--color-primary)" fill-rule="nonzero">
+                    <path d="M523,15.9 L523,47.3 C523,54.8 529.046512,61 536.403101,61 C542.449612,61 547.186047,57.3 548.899225,52 L550.310078,54.5 C552.829457,58.7 557.263566,61 561.79845,61 C569.155039,61 575,55.2 575,47.8 C575,45.3 574.395349,42.9 572.984496,40.7 L567.744186,32.4 C571.573643,29.5 573.891473,24.9 573.891473,19.3 C573.891473,9 565.627907,1 555.046512,1 L537.612403,1 C528.139535,1 523,6.1 523,15.9"></path>
+                    <path d="M519,49.5030231 C519,43.7552636 515.323467,39.4192345 510.255814,38.4108557 C512.541226,36.8982874 513.932347,34.3773402 513.932347,31.04969 C513.932347,27.7220398 512.640592,25.2010926 510.255814,23.6885243 C515.422833,22.6801455 519,18.4449543 519,12.5963569 C519,6.14273218 513.832981,1 507.572939,1 L486.706131,1 C477.167019,1 472,6.14273218 472,15.9240071 L472,46.074535 C472,55.9566478 477.167019,60.9985421 486.706131,60.9985421 L507.572939,60.9985421 C513.832981,61.09938 519,55.9566478 519,49.5030231"></path>
+                    <path d="M455.8,47.5 L455.8,26.8 C462.5,26.5 468,20.9 468,13.9 C468,6.7 462.2,1 455.1,1 L427.9,1 C420.8,1 415,6.6 415,13.9 C415,20.9 420.5,26.4 427.2,26.8 L427.2,47.5 C427.2,54.9 433.5,61 441.3,61 C449.6,61 455.8,54.9 455.8,47.5"></path>
+                    <path d="M362,15.9 L362,47.3 C362,54.8 368.046512,61 375.403101,61 C381.449612,61 386.186047,57.3 387.899225,52 L389.310078,54.5 C391.829457,58.7 396.263566,61 400.79845,61 C408.155039,61 414,55.2 414,47.8 C414,45.3 413.395349,42.9 411.984496,40.7 L406.744186,32.4 C410.573643,29.5 412.891473,24.9 412.891473,19.3 C412.891473,9 404.627907,1 394.046512,1 L376.612403,1 C367.24031,1 362,6.1 362,15.9"></path>
+                    <path d="M328.919678,49.5695364 C332.331325,56.6225166 337.147767,60 343.067976,60 C353.704285,60 361.229976,50.3642384 356.614219,39.5364238 L344.272087,10.9271523 C341.261811,3.87417219 336.746396,0 329.020021,0 C321.393988,0 316.878574,3.87417219 313.767955,10.9271523 L301.425823,39.5364238 C296.709724,50.3642384 304.335757,60 314.871723,60 C320.69159,60 325.508032,56.6225166 328.919678,49.5695364"></path>
+                    <path d="M293.776938,47.5 L293.776938,26.8 C300.489603,26.5 306,20.9 306,13.9 C306,6.7 300.189036,1 293.075614,1 L265.924386,1 C258.810964,1 253,6.6 253,13.9 C253,20.9 258.510397,26.4 265.223062,26.8 L265.223062,47.5 C265.223062,54.9 271.534972,61 279.349716,61 C287.465028,61 293.776938,54.9 293.776938,47.5"></path>
+                    <path d="M253,41.5361842 C253,35.5164474 249.993737,31.3026316 245.484342,27.2894737 L241.776618,23.9786184 C247.187891,23.1759868 250.795407,19.5641447 250.795407,14.2467105 C250.795407,5.31743421 243.680585,0 228.649269,0 C213.91858,0 205.300626,7.42434211 205.300626,19.1628289 C205.300626,25.1825658 208.407098,29.2960526 212.916493,33.4095395 L216.524008,36.7203947 L216.4238,36.7203947 C209.709812,36.7203947 205,40.6332237 205,46.7532895 C205,55.5822368 212.415449,61 228.248434,61 C243.780793,61 253,53.4753289 253,41.5361842"
+                          id="Shape-Copy-7"></path>
+                    <path d="M202,46.5662429 C202,43.7802283 201.192523,41.0937143 199.476636,38.7057019 L193.016822,29.8501557 L199.476636,20.9946095 C201.192523,18.7060976 202,15.920083 202,13.1340685 C202,5.7710301 195.842991,0.0995005189 188.575701,0.0995005189 C184.336449,0.0995005189 180.097196,2.18901142 177.472897,5.7710301 L174.343925,10.1490529 C173.13271,4.27852231 167.985047,0 161.424299,0 C153.854206,0 148,5.97003114 148,13.3330695 L148,46.6657434 C148,54.0287818 153.95514,59.9988129 161.424299,59.9988129 C167.884112,59.9988129 172.930841,56.0187922 174.242991,50.2477621 L177.069159,54.2277828 C179.693458,58.0088025 184.033645,59.9988129 188.272897,59.9988129 C195.842991,60.0983134 202,53.9292813 202,46.5662429"></path>
+                    <path d="M143,43.5099338 C143,37.1523179 139.818713,32.6821192 133.45614,30 C139.818713,27.3178808 143,22.9470199 143,16.4900662 C143,6.85430464 134.947368,0 122.023392,0 C104.725146,0 92,12.8145695 92,30 C92,47.1854305 104.725146,60 122.023392,60 C134.947368,60 143,53.1456954 143,43.5099338"></path>
+                    <path d="M72.5499366,0 C64.4666385,0 58,6.57807309 58,14.3521595 L58,45.6478405 C58,53.5215947 64.4666385,60 72.4488953,60 C80.6332346,60 86.9988319,53.4219269 86.9988319,45.6478405 L86.9988319,14.3521595 C87.0998731,6.57807309 80.6332346,0 72.5499366,0"></path>
+                    <path d="M54,46.5662429 C54,43.7802283 53.1940299,41.0937143 51.4813433,38.7057019 L45.0335821,29.8501557 L51.4813433,20.9946095 C53.1940299,18.7060976 54,15.920083 54,13.1340685 C54,5.7710301 47.8544776,0.0995005189 40.6007463,0.0995005189 C36.369403,0.0995005189 32.1380597,2.18901142 29.5186567,5.7710301 L26.2947761,10.1490529 C25.0858209,4.27852231 19.9477612,0 13.3992537,0 C5.84328358,0 0,5.97003114 0,13.3330695 L0,46.6657434 C0,54.0287818 5.94402985,59.9988129 13.3992537,59.9988129 C19.8470149,59.9988129 24.8843284,56.0187922 26.1940299,50.2477621 L29.0149254,54.2277828 C31.6343284,58.0088025 35.9664179,59.9988129 40.1977612,59.9988129 C47.8544776,60.0983134 54,53.9292813 54,46.5662429"></path>
+                </g>
+            </svg>
+        </a>
+    </div>
+    <div class="nav-right">
+        <a href="#">Search</a>
+        <a href="#">Log In</a>
+    </div>
+</nav>
+<main class="container">
+    <div class="is-horizontal-align">
+        <h1 style="margin: 0">Recollector by Kandel</h1>
+    </div>
+    <div class="is-horizontal-align">
+        <h2 class="roboto-thin" style="margin: 0">A human memory device</h2>
+    </div>
+    <div class="row" style="margin-top: 30px">
+        <img src="hero.jpg" style="aspect-ratio: 16/9; object-fit: cover;" alt="hero image" class="col-8"/>
+        <div class="card col-4">
+            <meter style="width: 100%; color: aqua" value="14" max="100"></meter>
+            <h1 class="clear text-primary">90 634,86$</h1>
+            <p class="clear text-grey">out of 650 000$</p>
+            <hr style="opacity: 0%;">
+            <h1 class="clear text-grey">17</h1>
+            <p class="clear text-grey">contributors</p>
+            <hr style="opacity: 0%;">
+            <h1 class="clear text-grey">823</h1>
+            <p class="clear text-grey">days remaining</p>
+            <hr style="opacity: 0%;">
+            <a class="button primary" style="width: 100%">Back this Project</a>
+        </div>
+    </div>
+    <hr style="opacity: 0%;">
+    <div class="row" style="padding-top: 5px">
+        <div class="col-3"><a href="#tech" class="button primary" style="width: 100%">Technical aspects</a></div>
+        <div class="col-3"><a href="#risk" class="button primary" style="width: 100%">Risks and challenges</a></div>
+        <div class="col-2"><a href="#timeline" class="button primary" style="width: 100%">Timeline</a></div>
+        <div class="col-2"><a href="#funding" class="button primary" style="width: 100%">Extra funding</a></div>
+        <div class="col-2"><a href="#rewards" class="button primary" style="width: 100%">Rewards</a></div>
+    </div>
+    <hr style="opacity: 0%;">
+    <p>
+        <span class="text-primary">Kandel</span> is presenting you it's new product the <span class="text-primary">Recollector</span>.
+    </p>
+    <p>
+        It will allow you to access your brain memory and manage it like you want. You will be able to erase it, move it
+        on our secured cloud storage and share it with your friends through the <span class="text-primary">RecollectorHub</span>.
+    </p>
+    <p>
+        A general marketplace will also be available on launch where people can sell their best memories for people to
+        experience it.
+    </p>
+    <p>
+        Be the first to invest in your future for the low price of <span class="text-primary">6 429.99 $</span> instead
+        of our <span class="text-primary">3699.99 $</span> retail price with
+        a surgery costing around 6699.99 $.
+    </p>
+    <hr style="opacity: 0%;">
+    <h1 id="tech" class="clear">Technical aspects</h1>
+
+    <h3 class="text-grey">Installation Process</h3>
+    <p>The <span class="text-primary">Recollector</span> implantation process employs neurosurgical precision.</p>
+    <p>A team of skilled professionals utilizes robotic-assisted surgery to precisely insert the ultra-thin,
+        biocompatible chip into the brain's neural cortex. The chip interfaces with neural synapses, establishing a
+        secure connection while minimizing disruption to surrounding tissues.</p>
+    <p>Post-implantation, the device integrates with the brain's neurochemistry, ensuring compatibility and long-term
+        stability.</p>
+
+    <div class="row">
+        <div class="col-8">
+            <h3 class="text-grey">The Saving feature</h3>
+            <p>The <span class="text-primary">Recollector</span> operates on the principles of neuroprosthetics,
+                employing an
+                array of microsensors to detect and record neural activity associated with memory formation. These
+                sensors
+                capture intricate details such as synaptic firing patterns, neurotransmitter release, and neural network
+                connectivity.</p>
+            <p>The collected data undergoes real-time processing within the implanted chip, where it is converted into a
+                proprietary digital memory format. This format allows for efficient storage and seamless transmission to
+                the
+                <span class="text-primary">Kandel Cloud</span> via a secure, high-bandwidth neural interface.</p>
+            <p>The process ensures minimal latency and high-fidelity reproduction of memories.</p>
+        </div>
+        <div class="col-4">
+            <img src="chip.jpg" alt="chip">
+        </div>
+    </div>
+
+    <h3 class="text-grey">Memory Erasure</h3>
+    <p>Memory management involves targeted manipulation of neural pathways. The <span
+            class="text-primary">Recollector</span> employs advanced neurostimulation techniques, utilizing specific
+        frequencies and patterns to selectively inhibit synaptic connections associated with designated memories.</p>
+    <p>This process, controlled through the secure smartphone app, triggers a cascade of neural responses leading to the
+        discreet and irreversible erasure of the targeted memory traces. The entire procedure is conducted with
+        precision, mitigating any unintended impact on adjacent memories or cognitive functions.</p>
+
+    <h3 class="text-grey">How sharing works</h3>
+    <p>The <span class="text-primary">Recollector's</span> memory retrieval process is an orchestrated interplay between
+        neural stimulation and immersive sensory feedback. Upon selecting a memory through the smartphone app, the
+        implanted chip activates targeted neural pathways, inducing a controlled reactivation of the associated sensory
+        and emotional experiences.</p>
+    <p>Simultaneously, the device interfaces with augmented reality (AR) technologies, overlaying visual and auditory
+        components of the stored memory onto the user's current perception. This integrated approach creates a
+        multi-sensory, lifelike re-enactment of the chosen memory, allowing users to relive their experiences in
+        unprecedented detail and emotional richness.</p>
+
+    <h1 id="risk">Risks and challenges</h1>
+    <p>Through our 200 years of collective experience in memory experimentations, we have gathered a lot of precise
+        information on our brain.</p>
+    <p>We have joined forces with people such has <span class="text-primary">Francis Eustache</span> and <span
+            class="text-primary">Eric Kandel</span>, famous researchers in neuroscience
+        as well as state-of-the-art companies to provide to you the best product possible.</p>
+    <p>Since 2018 and the start of the project, we managed to do all the necessary research and conceptualize the chip
+        entirely so more than half of the work is already done.</p>
+    <p>All Tiers items will be available for the backers only and will never be available elsewhere. We also do not plan
+        to have any version for sale elsewhere before 2028, and when that happens, the sale prices will be higher than
+        here.</p>
+
+    <h1 id="timeline">Timeline</h1>
+
+    <h3 class="text-grey">2018 - Today</h3>
+    <p>Since 2018, our team has been deeply involved in the design of the <span class="text-primary">Recollector</span>.
+        Our focus has been on creating a product that is not only technologically advanced but also user-friendly and
+        aesthetically pleasing. We have collaborated with top neuroscientists, engineers, and designers to ensure that
+        every aspect of the product, from the microsensors to the user interface of the app, is meticulously designed
+        and tested. Our commitment to excellence in product design has been a key factor in the success of the <span
+                class="text-primary">Recollector</span>.</p>
+    <h3 class="text-grey">Today</h3>
+    <p><span class="text-primary">We need you !!</span> With your support, our research and some time we will be able to
+        create this new and fantastic device.</p>
+    <h3 class="text-grey">Today - Early 2025</h3>
+    <p>Over the next year, our team will be fully engaged in the prototype production of the <span class="text-primary">Recollector</span>.
+        This phase will involve rigorous testing and refinement to ensure the highest quality and performance of the
+        device. We will be working closely with our partners and stakeholders, incorporating their feedback into our
+        design and development process. Our goal is to create a product that not only meets but exceeds expectations,
+        paving the way for a new era in memory management technology.</p>
+    <h3 class="text-grey">June 2025</h3>
+    <p>In June 2025, we will embark on an intensive product testing phase for the <span
+            class="text-primary">Recollector</span>. This crucial stage will involve a series of rigorous tests to
+        evaluate the device's performance, reliability, and user-friendliness. Our team of experts will simulate various
+        scenarios to ensure the device operates optimally under different conditions. We will also gather valuable
+        feedback from a select group of early users to further refine and enhance the product. Our goal is to ensure
+        that the <span class="text-primary">Recollector</span> delivers a seamless and enriching user experience.</p>
+    <h3 class="text-grey">September 2026</h3>
+    <p>In September 2026, a significant milestone in our journey will be reached. Our early backers, those who believed
+        in our vision and supported us from the start, will be scheduled for their appointments with our top-class
+        surgeon. This is not just a medical procedure, but a transformative experience that will open up new
+        possibilities for memory management. Our surgeon, a leading expert in the field of neurosurgery, will ensure
+        that the implantation of the <span class="text-primary">Recollector</span> is carried out with utmost precision
+        and care. This is a testament to our commitment to safety and quality, and a big step towards making our vision
+        a reality. We look forward to this exciting phase and are deeply grateful to our early backers for their trust
+        and support.</p>
+    <h3 class="text-grey">December 2026</h3>
+    <p>In December 2026, we will commence the early surgeries for the implantation of the <span class="text-primary">Recollector</span>.
+        This marks a significant step in our journey as we begin to bring our vision to life. Our top-class surgeon,
+        with their extensive experience and expertise, will perform these surgeries with the utmost care and precision.
+        The early surgeries will provide us with valuable insights and feedback, allowing us to further refine our
+        procedures and ensure the highest level of safety and effectiveness. We are committed to making this
+        transformative technology accessible and beneficial to all, and we are excited to take this important step
+        towards that goal.</p>
+
+
+    <h1 id="funding">Extra funding</h1>
+    <p>With each 1000 $ we get over our goal we will create an unique experience and push it to our <span
+            class="text-primary">RecollectHub</span> store for everyone to see <span
+            class="text-primary">for free</span>.</p>
+    <p>We have already gotten in touch with people to allow you to live these experiences:</p>
+    <ul>
+        <li>Skydiving from the edge of space.</li>
+        <li>Diving to the depth of earth with a submarine.</li>
+        <li>Live the exclusive sensation of going to space with Thomas Pesquet.</li>
+    </ul>
+
+    <h1 id="rewards">Rewards</h1>
+    <div class="row">
+        <div class="col-4 card" style="display: flex; flex-direction: column;">
+            <header>
+                <h4>Support our project</h4>
+            </header>
+            <p style="flex-grow: 1">We thank you for your support, we will put you in our special supporters page in our
+                website.</p>
+            <footer class="is-right">
+                <a class="button primary">Pledge for 5$</a>
+            </footer>
+        </div>
+        <div class="col-4 card" style="display: flex; flex-direction: column;">
+            <header>
+                <h4>The official T Shirt</h4>
+            </header>
+            <p style="flex-grow: 1">We thank you for your support, we will put you in our special supporters page in our
+                website. Moreover we
+                will ship you your very own backer T Shirt.</p>
+            <footer class="is-right">
+                <a class="button primary">Pledge for 15$</a>
+            </footer>
+        </div>
+        <div class="col-4 card" style="display: flex; flex-direction: column;">
+            <header>
+                <h4>Recollector x1</h4>
+            </header>
+            <p style="flex-grow: 1">This covers the cost of the surgery to install one Recollector in your brain
+                allowing back up and replay
+                your own memories. This pricing does not include our cloud solution.</p>
+            <footer class="is-right">
+                <a class="button primary">Pledge for 6 429.99$</a>
+            </footer>
+        </div>
+        <div class="col-4 card" style="display: flex; flex-direction: column;">
+            <header>
+                <h4>Recollector and RecollectHub x1</h4>
+            </header>
+            <p style="flex-grow: 1">This includes the cost of the Recollector, the surgery and a 10 year subscription to
+                our RecollectHub
+                cloud service, allowing you to, in addition to backuping your memories online to our servers you will
+                have early access to our store as a premium subcriber for free the first year.</p>
+            <footer class="is-right">
+                <a class="button primary">Pledge for 6 999.99$</a>
+            </footer>
+        </div>
+        <div class="col-4 card" style="display: flex; flex-direction: column;">
+            <header>
+                <h4>Recollector x2</h4>
+            </header>
+            <p style="flex-grow: 1">Kill two bird with one stone by covering the cost of the surgery for two person to
+                install the
+                Recollector. This pricing does not include our cloud solution.</p>
+            <footer class="is-right">
+                <a class="button primary">Pledge for 12 499.99$</a>
+            </footer>
+        </div>
+        <div class="col-4 card" style="display: flex; flex-direction: column;">
+            <header>
+                <h4>Recollector and RecollectHub x2</h4>
+            </header>
+            <p style="flex-grow: 1">This includes the cost of the Recollector, the surgery and two 5 year
+                subscription to our RecollectHub
+                cloud service, allowing you to, in addition to backuping your memories online to our servers you will
+                have early access to our store as a premium subcriber for free the first year.</p>
+            <footer class="is-right">
+                <a class="button primary">Pledge for 12 999.99$</a>
+            </footer>
+        </div>
+
+
+    </div>
+</main>
+<footer class="text-light bg-primary" style="min-height: 10vh; padding: 20px">
+    <div class="row" style="justify-content: space-around">
+        <div class="col-3">
+            <p>This is a fictitious work by students of Polytech Nice Sophia.</p>
+        </div>
+        <div class="col-3">
+            <p>Made by</p>
+            <ul>
+                <li><a href="" style="color: white">Maxime BILLY</a></li>
+                <li><a href="" style="color: white">Yael BURDESE</a></li>
+                <li><a href="" style="color: white">Marco LACLAVERE</a></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <p>This work is distributed with the MIT lisence, reproduction, redistribution and reuse are allowed
+                folloging <a style="color: white"
+                        href="https://mit-license.org/">these rules</a> .</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
