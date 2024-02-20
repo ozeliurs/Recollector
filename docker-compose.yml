@@ -4,7 +4,7 @@ services:
   nginx:
     image: nginx:latest
     volumes:
-      - ./public:/var/www/html
+      - ./static:/var/www/html
     networks:
       - traefik
     labels:
